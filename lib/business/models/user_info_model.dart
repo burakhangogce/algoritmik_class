@@ -1,64 +1,46 @@
 import 'dart:convert';
 
 class UserInfoModel {
-  String? sub;
-  String? preferred_username;
-  String? name;
-  String? given_name;
-  String? role;
-  String? customerNo;
+  String? displayName;
+  String? username;
   String? email;
+  String? password;
   UserInfoModel({
-    this.sub,
-    this.preferred_username,
-    this.name,
-    this.given_name,
-    this.role,
-    this.customerNo,
+    this.displayName,
+    this.username,
     this.email,
+    this.password,
   });
 
   UserInfoModel copyWith({
-    String? sub,
-    String? preferred_username,
-    String? name,
-    String? given_name,
-    String? role,
-    String? customerNo,
+    String? displayName,
+    String? username,
     String? email,
+    String? password,
   }) {
     return UserInfoModel(
-      sub: sub ?? this.sub,
-      preferred_username: preferred_username ?? this.preferred_username,
-      name: name ?? this.name,
-      given_name: given_name ?? this.given_name,
-      role: role ?? this.role,
-      customerNo: customerNo ?? this.customerNo,
+      displayName: displayName ?? this.displayName,
+      username: username ?? this.username,
       email: email ?? this.email,
+      password: password ?? this.password,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
-      'sub': sub,
-      'preferred_username': preferred_username,
-      'name': name,
-      'given_name': given_name,
-      'role': role,
-      'customerNo': customerNo,
-      'email': email,
+      'DisplayName': displayName,
+      'UserName': username,
+      'Email': email,
+      'Password': password,
     };
   }
 
   factory UserInfoModel.fromMap(Map<String, dynamic> map) {
     return UserInfoModel(
-      sub: map['sub'],
-      preferred_username: map['preferred_username'],
-      name: map['name'],
-      given_name: map['given_name'],
-      role: map['role'],
-      customerNo: map['customerNo'],
-      email: map['email'],
+      displayName: map['DisplayName'],
+      username: map['UserName'],
+      email: map['Email'],
+      password: map['Password'],
     );
   }
 
@@ -69,7 +51,7 @@ class UserInfoModel {
 
   @override
   String toString() {
-    return 'UserInfoModel(sub: $sub, preferred_username: $preferred_username, name: $name, given_name: $given_name, role: $role, customerNo: $customerNo, email: $email)';
+    return 'UserInfoModel(UserName: $username, Email: $email, DisplayName: $displayName, Password: $password)';
   }
 
   @override
@@ -77,23 +59,17 @@ class UserInfoModel {
     if (identical(this, other)) return true;
 
     return other is UserInfoModel &&
-        other.sub == sub &&
-        other.preferred_username == preferred_username &&
-        other.name == name &&
-        other.given_name == given_name &&
-        other.role == role &&
-        other.customerNo == customerNo &&
-        other.email == email;
+        other.username == username &&
+        other.displayName == displayName &&
+        other.email == email &&
+        other.password == password;
   }
 
   @override
   int get hashCode {
-    return sub.hashCode ^
-        preferred_username.hashCode ^
-        name.hashCode ^
-        given_name.hashCode ^
-        role.hashCode ^
-        customerNo.hashCode ^
-        email.hashCode;
+    return username.hashCode ^
+        displayName.hashCode ^
+        email.hashCode ^
+        password.hashCode;
   }
 }

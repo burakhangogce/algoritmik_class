@@ -56,9 +56,9 @@ class Validations {
 
   static String? validateEmail(String? email) {
     var regex = RegExp(r"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
-    if (email == null || !regex.hasMatch(email.trim())) {
-      return 'Lütfen geçerli bir E-posta adresi giriniz.';
-    }
+    // if (email == null || !regex.hasMatch(email.trim())) {
+    //   return 'Lütfen geçerli bir E-posta adresi giriniz.';
+    // }
     return null;
   }
 

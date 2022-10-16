@@ -91,10 +91,11 @@ class AppTheme {
 
   static final ButtonStyle elevatedButtonStyle = ElevatedButton.styleFrom(
     primary: primaryColor,
+    backgroundColor: primaryColor,
     fixedSize: const Size.fromHeight(50),
     textStyle: notoSansReg16White,
     shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(7)),
+      borderRadius: BorderRadius.all(Radius.circular(15)),
     ),
   );
 
@@ -340,6 +341,8 @@ class AppTheme {
 
   static TextStyle notoSansSB18PrimaryText =
       notoSansSemiBold.copyWith(color: primaryTextColor, fontSize: 18.0);
+  static TextStyle notoSansSB18WhiteText =
+      notoSansSemiBold.copyWith(color: Colors.white, fontSize: 18.0);
 
   static TextStyle notoSansSB35WhiteText =
       notoSansSemiBold.copyWith(color: Colors.white, fontSize: 35.0);

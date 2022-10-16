@@ -27,8 +27,8 @@ class SigninView extends StatelessWidget {
     TextEditingController passController = TextEditingController();
 
     if (kDebugMode && !isTest) {
-      emailController.text = "admin@abc.com";
-      passController.text = '\$admin@2022';
+      emailController.text = "admin1255222";
+      passController.text = 'ddd';
       // emailController.text = "bektasi@biscozum.com.tr";
       // passController.text = 'Pass123\$';
 
@@ -37,153 +37,148 @@ class SigninView extends StatelessWidget {
     }
 
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(gradient: gradientBackground),
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.only(
-                left: 16.0, top: 15.0, right: 16, bottom: 50),
-            child: SafeArea(
-              bottom: false,
-              right: false,
-              left: false,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  const Image(
-                    height: 70,
-                    width: 210,
-                    image: AssetImage('assets/images/logo.png'),
-                    fit: BoxFit.cover,
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Text(
-                    Localization.of(context)!.signin_title,
-                    style: AppTheme.notoSansMed16White,
-                    textAlign: TextAlign.center,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(9),
-                        color: backgroundColor,
-                        boxShadow: const [
-                          BoxShadow(
-                              color: containerShadowColor,
-                              spreadRadius: 0,
-                              blurRadius: 6,
-                              offset: Offset(0, 3)),
-                        ]),
-                    child: Padding(
-                      padding:
-                          const EdgeInsets.only(top: 0, right: 16, left: 16),
-                      child: Form(
-                        key: formKey,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            const SizedBox(
-                              height: 37,
-                            ),
-                            GeneralTextFormField(
-                              emailController,
-                              keyboardType: TextInputType.emailAddress,
-                              placeholder: Localization.of(context)!
-                                  .signin_email_placeholder,
-                              validator: (value) =>
-                                  Validations.validateEmail(value),
-                              key: const Key('email-textfield'),
-                            ),
-                            const SizedBox(
-                              height: 16,
-                            ),
-                            PasswordTextFormField(
-                              passController: passController,
-                              placeHolder: Localization.of(context)!
-                                  .signin_password_placeholder,
-                              key: const Key('password-textfield'),
-                            ),
-                            GestureDetector(
-                              onTap: () =>
-                                  Navigator.pushNamed(context, '/newpassword'),
-                              child: Align(
-                                alignment: Alignment.topRight,
-                                child: Text(
-                                  Localization.of(context)!
-                                      .signin_forgot_password,
-                                  style: AppTheme.notoSansReg12Primary,
-                                ),
+      appBar: AppBar(
+        title: Text(
+          Localization.of(context)!.signin_login_button,
+          style: AppTheme.notoSansSB18PrimaryText,
+        ),
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+          onPressed: () {},
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(
+              left: 16.0, top: 15.0, right: 16, bottom: 50),
+          child: SafeArea(
+            bottom: false,
+            right: false,
+            left: false,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(9),
+                      color: backgroundColor,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: containerShadowColor,
+                            spreadRadius: 0,
+                            blurRadius: 6,
+                            offset: Offset(0, 3)),
+                      ]),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 0, right: 16, left: 16),
+                    child: Form(
+                      key: formKey,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          const SizedBox(
+                            height: 37,
+                          ),
+                          GeneralTextFormField(
+                            emailController,
+                            keyboardType: TextInputType.emailAddress,
+                            placeholder: Localization.of(context)!
+                                .signin_email_placeholder,
+                            validator: (value) =>
+                                Validations.validateEmail(value),
+                            key: const Key('email-textfield'),
+                          ),
+                          const SizedBox(
+                            height: 16,
+                          ),
+                          PasswordTextFormField(
+                            passController: passController,
+                            placeHolder: Localization.of(context)!
+                                .signin_password_placeholder,
+                            key: const Key('password-textfield'),
+                          ),
+                          GestureDetector(
+                            onTap: () =>
+                                Navigator.pushNamed(context, '/newpassword'),
+                            child: Align(
+                              alignment: Alignment.topRight,
+                              child: Text(
+                                Localization.of(context)!
+                                    .signin_forgot_password,
+                                style: AppTheme.notoSansReg12Primary,
                               ),
                             ),
-                            const SizedBox(
-                              height: 24,
-                            ),
-                            ConstrainedBox(
-                              constraints: const BoxConstraints(
-                                  minHeight: 120, maxHeight: 240),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: [
-                                  Flexible(
-                                    flex: 1,
-                                    child: ElevatedButton(
-                                        onPressed: () {
-                                          bool valid = formKey.currentState
-                                                  ?.validate() ??
-                                              false;
-                                          if (valid) {
-                                            LoadingDialog.openDialog();
+                          ),
+                          const SizedBox(
+                            height: 24,
+                          ),
+                          ConstrainedBox(
+                            constraints: const BoxConstraints(
+                                minHeight: 120, maxHeight: 240),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Flexible(
+                                  flex: 1,
+                                  child: ElevatedButton(
+                                      onPressed: () {
+                                        bool valid =
+                                            formKey.currentState?.validate() ??
+                                                false;
+                                        if (valid) {
+                                          LoadingDialog.openDialog();
 
-                                            context
-                                                .read<SigninController>()
-                                                .login(emailController.text,
-                                                    passController.text)
-                                                .then((result) {
-                                              LoadingDialog.closeDialog();
-                                              loginResult(
-                                                  result,
-                                                  emailController.text,
-                                                  context);
-                                            });
-                                          }
-                                        },
-                                        key: const Key('login'),
-                                        style: AppTheme.elevatedButtonStyle,
-                                        child: Text(Localization.of(context)!
-                                            .signin_login_button)),
-                                  ),
-                                  DividerWidget(Localization.of(context)!
-                                      .signin_company_question),
-                                  Flexible(
-                                    flex: 1,
-                                    child: OutlinedButton(
-                                        style: OutlinedButton.styleFrom(
-                                            primary: loginGradientStartColor,
-                                            side: const BorderSide(
-                                              width: 1.0,
-                                              color: loginGradientStartColor,
-                                              style: BorderStyle.solid,
-                                            )),
-                                        onPressed: () {},
-                                        child: Text(Localization.of(context)!
-                                            .signin_company_button)),
-                                  ),
-                                  const SizedBox(
-                                    height: 15,
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
+                                          context
+                                              .read<SigninController>()
+                                              .login(emailController.text,
+                                                  passController.text)
+                                              .then((result) {
+                                            LoadingDialog.closeDialog();
+                                            loginResult(result,
+                                                emailController.text, context);
+                                          });
+                                        }
+                                      },
+                                      key: const Key('login'),
+                                      style: AppTheme.elevatedButtonStyle,
+                                      child: Text(Localization.of(context)!
+                                          .signin_login_button)),
+                                ),
+                                DividerWidget(Localization.of(context)!
+                                    .signin_company_question),
+                                Flexible(
+                                  flex: 1,
+                                  child: OutlinedButton(
+                                      style: OutlinedButton.styleFrom(
+                                          primary: loginGradientStartColor,
+                                          side: const BorderSide(
+                                            width: 1.0,
+                                            color: loginGradientStartColor,
+                                            style: BorderStyle.solid,
+                                          )),
+                                      onPressed: () {},
+                                      child: Text(Localization.of(context)!
+                                          .signin_company_button)),
+                                ),
+                                const SizedBox(
+                                  height: 15,
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
                       ),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
           ),
         ),

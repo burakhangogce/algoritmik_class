@@ -1,6 +1,4 @@
 import 'package:get_it/get_it.dart';
-
-import '../../../main.dart';
 import '../../business/services/general/setting_service.dart';
 
 mixin ServiceMixin {
@@ -20,6 +18,6 @@ mixin ServiceMixin {
   }
 
   Uri getUri(String methodName) {
-    return Uri.parse("$url/$path");
+    return Uri.parse("$url/$path/$methodName");
   }
 }

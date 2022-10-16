@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../constants/app_color.dart';
 import '../../../../constants/localization.dart';
+import '../../../../main.dart';
 
 class BoardingWidget extends StatelessWidget {
   final String image;
@@ -21,18 +22,21 @@ class BoardingWidget extends StatelessWidget {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
             Image(
-              height: 379,
+              height: pageHeight * 0.45,
               image: AssetImage(image),
               fit: BoxFit.cover,
             ),
             Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 32, 16, 16),
+                  padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
                   child: Text(
                     Localization.of(context)!.boarding1_title,
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headline1,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline1!
+                        .copyWith(fontSize: 22),
                   ),
                 ),
                 Padding(
@@ -43,7 +47,7 @@ class BoardingWidget extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                         fontFamily: 'NotoSans',
-                        fontSize: 16,
+                        fontSize: 14,
                         fontWeight: FontWeight.w400),
                   ),
                 )

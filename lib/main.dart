@@ -17,6 +17,7 @@ import 'core/services/service_container.dart';
 
 LoginInfo? loginInfo;
 GetIt getIt = GetIt.instance;
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 double pageHeight =
     MediaQuery.of(NavigationService.navigatorKey.currentContext!).size.height;
@@ -51,6 +52,9 @@ class MyApp extends StatelessWidget {
             .get<SettingService>()
             .get<bool>('boardingCompleted', defaultValue: false) ??
         false;
+
+    String signinCompleted =
+        getIt.get<SettingService>().get<String>('Admin') ?? "true";
 
     return MaterialApp(
       navigatorKey: NavigationService.navigatorKey,

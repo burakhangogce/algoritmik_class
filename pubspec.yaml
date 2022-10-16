@@ -52,10 +52,12 @@ dependencies:
   http: ^0.13.4
   json_serializable: ^6.3.1
   flutter_svg: ^1.1.5
+  shared_preferences: ^2.0.15
 
   mobkit_flutter_servicebase:
     git:
       url: https://github.com/burakhangogce/algoritmik_flutter_servicebase.git
+
 flutter_icons:
   android: "launcher_icon"
   ios: true
@@ -75,7 +77,64 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   generate: true
-
+  fonts:
+    - family: NotoSans
+      fonts:
+        - asset: assets/fonts/noto_sans/NotoSans-Black.ttf
+          weight: 900
+        - asset: assets/fonts/noto_sans/NotoSans-BlackItalic.ttf
+          weight: 900
+        - asset: assets/fonts/noto_sans/NotoSans-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/noto_sans/NotoSans-ExtraBoldItalic.ttf
+          weight: 800
+        - asset: assets/fonts/noto_sans/NotoSans-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/noto_sans/NotoSans-BoldItalic.ttf
+          weight: 700
+        - asset: assets/fonts/noto_sans/NotoSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/noto_sans/NotoSans-SemiBoldItalic.ttf
+          weight: 600
+        - asset: assets/fonts/noto_sans/NotoSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/noto_sans/NotoSans-MediumItalic.ttf
+          weight: 500
+        - asset: assets/fonts/noto_sans/NotoSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/noto_sans/NotoSans-Italic.ttf
+          weight: 400
+        - asset: assets/fonts/noto_sans/NotoSans-Light.ttf
+          weight: 300
+        - asset: assets/fonts/noto_sans/NotoSans-LightItalic.ttf
+          weight: 300
+        - asset: assets/fonts/noto_sans/NotoSans-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/noto_sans/NotoSans-ExtraLightItalic.ttf
+          weight: 200
+        - asset: assets/fonts/noto_sans/NotoSans-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/noto_sans/NotoSans-ThinItalic.ttf
+          weight: 100
+    - family: SFPro
+      fonts:
+        - asset: assets/fonts/sfpro/SFPro-Regular.ttf
+          weight: 400
+    - family: fontAwesomeProSolid
+      fonts:
+        - asset: assets/fonts/fontAwesomePro/FontAwesomeProSolid900.otf
+    - family: fontAwesomeProRegular
+      fonts:
+        - asset: assets/fonts/fontAwesomePro/FontAwesomeProRegular400.otf
+    - family: fontAwesomeProLight
+      fonts:
+        - asset: assets/fonts/fontAwesomePro/FontAwesomeProLight300.otf
+    - family: fontAwesomeDuoTone
+      fonts:
+        - asset: assets/fonts/fontAwesomePro/FontAwesomeDuotoneSolid900.otf
+    - family: fontAwesomeBrands
+      fonts:
+        - asset: assets/fonts/fontAwesomePro/FontAwesomeBrandsRegular400.otf
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/icons/

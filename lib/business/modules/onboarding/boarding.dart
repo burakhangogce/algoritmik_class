@@ -1,3 +1,5 @@
+import 'package:algoritmik_class/business/commons/widgets/buttons/primary_button.dart';
+import 'package:algoritmik_class/constants/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -58,21 +60,11 @@ class _BoardingState extends State<Boarding> {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Stack(
                   alignment: AlignmentDirectional.center,
                   children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.pushReplacementNamed(context, '/login');
-                        },
-                        child: Text(
-                            AppLocalizations.of(context)!.boarding_skipButton),
-                      ),
-                    ),
                     Align(
                       alignment: Alignment.center,
                       child: SmoothPageIndicator(
@@ -81,20 +73,39 @@ class _BoardingState extends State<Boarding> {
                         effect: WormEffect(
                             dotColor: primaryColor.withOpacity(0.5),
                             activeDotColor: secondaryColor,
-                            dotHeight: 6,
-                            dotWidth: 6,
-                            radius: 3),
+                            dotHeight: 10,
+                            dotWidth: 10,
+                            radius: 7),
                         onDotClicked: (index) => _pageController.animateToPage(
                             index,
                             duration: const Duration(milliseconds: 500),
                             curve: Curves.bounceOut),
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: getWizardButton(),
-                    )
                   ],
+                ),
+                SizedBox(
+                  height: pageHeight * 0.05,
+                ),
+                SizedBox(
+                  width: pageWidht * 0.8,
+                  child: PrimaryButton(
+                    onPressed: loginFunc,
+                    text: "Sign Up",
+                    textStyle: AppTheme.notoSansMed18White,
+                    style: AppTheme.elevatedButtonStyle,
+                  ),
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                SizedBox(
+                  width: pageWidht * 0.8,
+                  child: PrimaryButton(
+                    onPressed: loginFunc,
+                    text: "Login",
+                    textStyle: AppTheme.notoSansMed18White,
+                  ),
                 ),
               ],
             ),
@@ -102,6 +113,10 @@ class _BoardingState extends State<Boarding> {
         ],
       ),
     );
+  }
+
+  void loginFunc() {
+    Navigator.pushNamed(context, '/login');
   }
 
   Widget getWizardButton() {

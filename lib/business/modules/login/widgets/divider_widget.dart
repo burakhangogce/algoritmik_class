@@ -18,7 +18,7 @@ class DividerWidget extends StatelessWidget {
         Container(
           height: 2,
           width: 60,
-          color: secondaryColor,
+          color: primaryColor,
         ),
         const SizedBox(
           width: 9,
@@ -30,7 +30,7 @@ class DividerWidget extends StatelessWidget {
         Container(
           height: 2,
           width: 60,
-          color: secondaryColor,
+          color: primaryColor,
         ),
       ],
     );

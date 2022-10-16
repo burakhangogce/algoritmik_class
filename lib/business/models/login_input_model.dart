@@ -1,33 +1,33 @@
 import 'dart:convert';
 
 class LoginInputModel {
-  String email = "";
+  String username = "";
   String password = "";
   LoginInputModel({
-    required this.email,
+    required this.username,
     required this.password,
   });
 
   LoginInputModel copyWith({
-    String? email,
+    String? username,
     String? password,
   }) {
     return LoginInputModel(
-      email: email ?? this.email,
+      username: username ?? this.username,
       password: password ?? this.password,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
-      'email': email,
+      'username': username,
       'password': password,
     };
   }
 
   factory LoginInputModel.fromMap(Map<String, dynamic> map) {
     return LoginInputModel(
-      email: map['email'] ?? '',
+      username: map['username'] ?? '',
       password: map['password'] ?? '',
     );
   }
@@ -38,17 +38,18 @@ class LoginInputModel {
       LoginInputModel.fromMap(json.decode(source));
 
   @override
-  String toString() => 'LoginInputModel(email: $email, password: $password)';
+  String toString() =>
+      'LoginInputModel(username: $username, password: $password)';
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
     return other is LoginInputModel &&
-        other.email == email &&
+        other.username == username &&
         other.password == password;
   }
 
   @override
-  int get hashCode => email.hashCode ^ password.hashCode;
+  int get hashCode => username.hashCode ^ password.hashCode;
 }

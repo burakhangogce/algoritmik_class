@@ -13,7 +13,7 @@ import 'package:http/http.dart' as http;
 class IdentityServices extends AlgoritmikServiceBase with ServiceMixin {
   IdentityServices() {
     url = settingService.getRegisterUrl();
-    path = 'token';
+    path = 'account';
   }
 
   // Future login(LoginInputModel request) async {
@@ -22,11 +22,10 @@ class IdentityServices extends AlgoritmikServiceBase with ServiceMixin {
   //   return loginMap;
   // }
 
-  Future<String> login(LoginInputModel request) async {
-    final response = await http.post(getUri(''),
-        headers: createHeaders(), body: request.toJson());
-
-    return response.body;
+  Future<LoginOutputModel> login(LoginInputModel request) async {
+    Map<String, dynamic> loginMap = await postMapAsync<Map<String, dynamic>>(
+        getUri('login').toString(), createHeaders(), request.toJson(), null);
+    return LoginOutputModel.fromMap(loginMap);
   }
 
   Future<UserInfoModel> getUser() async {
