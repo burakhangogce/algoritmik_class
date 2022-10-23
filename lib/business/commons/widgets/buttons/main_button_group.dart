@@ -85,8 +85,8 @@ class _MainButtonGroupState extends State<MainButtonGroup> {
   Widget build(BuildContext context) {
     ButtonStyle getButtonStyle(int index) {
       var buttonstyle = ElevatedButton.styleFrom(
-        onPrimary: overlayDarkColor,
-        primary: _selectedIndex == index
+        foregroundColor: overlayDarkColor,
+        backgroundColor: _selectedIndex == index
             ? widget.selectedColor
             : widget.unSelectedColor,
         fixedSize: const Size.fromHeight(40),

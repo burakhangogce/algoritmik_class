@@ -2,8 +2,9 @@ import 'package:algoritmik_class/extensions/color_extension.dart';
 import 'package:flutter/material.dart';
 
 const Color backgroundColor = Color.fromRGBO(250, 250, 250, 1);
+const Color secondBackgroundColor = Color.fromRGBO(253, 253, 253, 1);
 
-const Color primaryColor = Color.fromRGBO(127, 61, 255, 1);
+const Color primaryColor = Color.fromRGBO(85, 64, 93, 1);
 MaterialColor primaryMaterialColor = primaryColor.toMaterialColor();
 
 const Color primaryColor2 = Color.fromARGB(255, 162, 127, 234);
@@ -27,11 +28,27 @@ MaterialColor disabledMaterialColor = disabledColor.toMaterialColor();
 const Color cardColor = Color.fromRGBO(253, 165, 46, 1);
 MaterialColor cardMaterialColor = cardColor.toMaterialColor();
 
-const Color primaryTextColor = Color.fromRGBO(30, 41, 59, 1);
+const Color primaryTextColor = Color.fromRGBO(31, 44, 55, 1);
 MaterialColor primaryTextMaterialColor = primaryTextColor.toMaterialColor();
+
+const Color primary2TextColor = Color.fromRGBO(156, 164, 171, 1);
+MaterialColor primary2TextMaterialColor = primaryTextColor.toMaterialColor();
 
 const Color secondaryTextColor = Color.fromRGBO(255, 255, 255, 1);
 MaterialColor secondaryTextMaterialColor = secondaryTextColor.toMaterialColor();
+
+const Color fistBorderColor = Color.fromRGBO(227, 233, 237, 1);
+MaterialColor fistBorderColorMaterialColor = fistBorderColor.toMaterialColor();
+
+const Color firstIconColor = Color.fromRGBO(85, 64, 93, 1);
+MaterialColor firstIconColorMaterialColor = fistBorderColor.toMaterialColor();
+
+const Color secondIconColor = Color.fromARGB(255, 163, 149, 169);
+MaterialColor secondIconColorMaterialColor = fistBorderColor.toMaterialColor();
+
+const Color background2Color = Color.fromRGBO(236, 241, 246, 1);
+MaterialColor widgetBackground2ColorMaterialColor =
+    fistBorderColor.toMaterialColor();
 
 const Color insideFormTextColor = Color.fromRGBO(115, 122, 133, 1);
 MaterialColor insideFormTextMaterialColor =

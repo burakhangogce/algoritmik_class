@@ -1,4 +1,4 @@
-import 'package:algoritmik_class/business/modules/createrequest/screens/home_page.dart';
+import 'package:algoritmik_class/business/modules/home/screens/home_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,7 +11,7 @@ import '../../../commons/widgets/dialogs/loading_dialog.dart';
 import '../../../commons/widgets/textformfields/general_text_form_field.dart';
 import '../../../commons/widgets/textformfields/password_text_form_field.dart';
 import '../../../models/login_result.dart';
-import '../../createrequest/controller/createrequest_controller.dart';
+import '../../home/controller/home_controller.dart';
 import '../controller/signin_controller.dart';
 import '../widgets/divider_widget.dart';
 import '../widgets/snackbar.dart';
@@ -22,18 +22,12 @@ class SigninView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
-    SigninController model = Provider.of<SigninController>(context);
     TextEditingController emailController = TextEditingController();
     TextEditingController passController = TextEditingController();
 
     if (kDebugMode && !isTest) {
-      emailController.text = "admin1255222";
+      emailController.text = "admin77713";
       passController.text = 'ddd';
-      // emailController.text = "bektasi@biscozum.com.tr";
-      // passController.text = 'Pass123\$';
-
-      //emailController.text = "baris.yildirim@biscozum.com";
-      //passController.text = 'Abcd1234.';
     }
 
     return Scaffold(
@@ -157,7 +151,8 @@ class SigninView extends StatelessWidget {
                                   flex: 1,
                                   child: OutlinedButton(
                                       style: OutlinedButton.styleFrom(
-                                          primary: loginGradientStartColor,
+                                          foregroundColor:
+                                              loginGradientStartColor,
                                           side: const BorderSide(
                                             width: 1.0,
                                             color: loginGradientStartColor,
@@ -193,7 +188,7 @@ class SigninView extends StatelessWidget {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (BuildContext context) => ChangeNotifierProvider(
-                create: (context) => CreateRequestController(),
+                create: (context) => HomeController(),
                 child: const HomePage(),
               ),
             ),

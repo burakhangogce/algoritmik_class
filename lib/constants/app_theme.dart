@@ -90,8 +90,7 @@ class AppTheme {
   );
 
   static final ButtonStyle elevatedButtonStyle = ElevatedButton.styleFrom(
-    primary: primaryColor,
-    backgroundColor: primaryColor,
+    backgroundColor: firstIconColor,
     fixedSize: const Size.fromHeight(50),
     textStyle: notoSansReg16White,
     shape: const RoundedRectangleBorder(
@@ -100,20 +99,19 @@ class AppTheme {
   );
 
   static final ButtonStyle textButtonStyle = TextButton.styleFrom(
-    primary: primaryTextColor,
-    // textStyle: textTheme.button,
+    foregroundColor: primaryTextColor,
     fixedSize: const Size.fromHeight(22),
   );
 
   static final ButtonStyle textSecondaryButtonStyle = TextButton.styleFrom(
-      primary: primaryColor,
+      foregroundColor: primaryColor,
       textStyle: notoSansReg12Primary,
       fixedSize: const Size.fromHeight(12)
       // textStyle: textTheme.button?.copyWith(decoration: TextDecoration.underline),
       );
 
   static final ButtonStyle outlinedButtonStyle = OutlinedButton.styleFrom(
-    primary: primaryColor,
+    foregroundColor: primaryColor,
     shape: const RoundedRectangleBorder(
       side: BorderSide(
         width: 1.0,
@@ -126,7 +124,7 @@ class AppTheme {
   );
 
   static final ButtonStyle outlineButtonBorderStyle = OutlinedButton.styleFrom(
-    primary: primaryColor,
+    foregroundColor: primaryColor,
     fixedSize: const Size.fromHeight(50),
     side: const BorderSide(
       width: 1,
@@ -136,12 +134,12 @@ class AppTheme {
   );
 
   static final ButtonStyle outlineGhostButtonStyle = OutlinedButton.styleFrom(
-    primary: ghostColor,
+    foregroundColor: ghostColor,
   );
 
   static final ButtonStyle elevatedGhostButtonStyle = ElevatedButton.styleFrom(
-    onPrimary: overlayColor,
-    primary: ghostColor,
+    foregroundColor: overlayColor,
+    backgroundColor: ghostColor,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(7)),
     ),
@@ -149,8 +147,8 @@ class AppTheme {
 
   static final ButtonStyle elevatedPrimaryPassiveButtonStyle =
       ElevatedButton.styleFrom(
-    onPrimary: overlayColor,
-    primary: disabledColor,
+    foregroundColor: overlayColor,
+    backgroundColor: disabledColor,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(7)),
     ),
@@ -158,8 +156,8 @@ class AppTheme {
 
   static final ButtonStyle elevatedPrimaryActiveButtonStyle =
       ElevatedButton.styleFrom(
-    onPrimary: overlayColor,
-    primary: primaryColor,
+    foregroundColor: overlayColor,
+    backgroundColor: primaryColor,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(7)),
     ),
@@ -167,8 +165,8 @@ class AppTheme {
 
   static final ButtonStyle elevatedPrimaryActiveBorderButtonStyle =
       ElevatedButton.styleFrom(
-    onPrimary: overlayDarkColor,
-    primary: primaryColor,
+    foregroundColor: overlayDarkColor,
+    backgroundColor: primaryColor,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(7)),
     ),
@@ -176,8 +174,8 @@ class AppTheme {
 
   static final ButtonStyle elevatedSecondaryButtonStyle =
       ElevatedButton.styleFrom(
-          onPrimary: overlayColor,
-          primary: Colors.white,
+          foregroundColor: overlayColor,
+          backgroundColor: Colors.white,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(7)),
           ),
@@ -188,8 +186,8 @@ class AppTheme {
 
   static final ButtonStyle elevatedEnabledButtonStyle =
       ElevatedButton.styleFrom(
-    onPrimary: overlayColor,
-    primary: disabledColor,
+    foregroundColor: overlayColor,
+    backgroundColor: disabledColor,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(7)),
     ),
@@ -205,16 +203,16 @@ class AppTheme {
 
   static final ButtonStyle elevatedPrimaryActiveTextButtonStyle =
       ElevatedButton.styleFrom(
-    onPrimary: Colors.black,
-    primary: Colors.black,
+    foregroundColor: Colors.black,
+    backgroundColor: Colors.black,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(7)),
     ),
   );
   static final ButtonStyle elevatedPrimaryActiveTransparentTextButtonStyle =
       ElevatedButton.styleFrom(
-    onPrimary: Colors.transparent,
-    primary: Colors.transparent,
+    foregroundColor: Colors.transparent,
+    backgroundColor: Colors.transparent,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(7)),
     ),
@@ -325,6 +323,12 @@ class AppTheme {
 
   static const TextStyle notoSansMed14PrimaryText = TextStyle(
       color: primaryTextColor,
+      fontFamily: "NotoSans",
+      fontSize: 14.0,
+      fontWeight: FontWeight.w500);
+
+  static const TextStyle notoSansMed14Primary2Text = TextStyle(
+      color: primary2TextColor,
       fontFamily: "NotoSans",
       fontSize: 14.0,
       fontWeight: FontWeight.w500);

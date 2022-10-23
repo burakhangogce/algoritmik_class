@@ -14,13 +14,12 @@ class Badge extends StatelessWidget {
 
   final int badgeCount;
   final Color badgeColor;
-  TextStyle? badgeTextStyle;
+  final TextStyle badgeTextStyle = AppTheme.sfProReg10White;
   final Alignment badgePositon;
   final Widget? child;
 
   @override
   Widget build(BuildContext context) {
-    badgeTextStyle ??= AppTheme.sfProReg10White;
     return Container(
       color: Colors.transparent,
       child: Stack(

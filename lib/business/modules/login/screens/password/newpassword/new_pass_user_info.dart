@@ -118,7 +118,7 @@ class _NewPassUserInfoState extends State<NewPassUserInfo> {
                   ),
                   OutlinedButton(
                       style: OutlinedButton.styleFrom(
-                          primary: loginGradientStartColor,
+                          foregroundColor: loginGradientStartColor,
                           side: const BorderSide(
                             width: 1.0,
                             color: loginGradientStartColor,

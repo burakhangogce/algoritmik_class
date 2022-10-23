@@ -22,7 +22,7 @@ class MainElevatedButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: isEnable ? onClicked : null,
       style: ElevatedButton.styleFrom(
-        primary: primary ?? primaryColor,
+        backgroundColor: primary ?? primaryColor,
       ),
       child: icon != null
           ? Row(

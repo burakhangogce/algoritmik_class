@@ -2,9 +2,9 @@
 
 part of 'login_info.dart';
 
-// **************************
+// **************************************************************************
 // JsonSerializableGenerator
-// **************************
+// **************************************************************************
 
 LoginInfo _$LoginInfoFromJson(Map<String, dynamic> json) => LoginInfo(
       json['authToken'] as String,

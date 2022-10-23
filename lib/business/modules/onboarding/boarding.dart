@@ -2,7 +2,6 @@ import 'package:algoritmik_class/business/commons/widgets/buttons/primary_button
 import 'package:algoritmik_class/constants/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../../constants/app_color.dart';
 import '../../../main.dart';
 import '../../services/general/setting_service.dart';
@@ -72,7 +71,7 @@ class _BoardingState extends State<Boarding> {
                         count: 4,
                         effect: WormEffect(
                             dotColor: primaryColor.withOpacity(0.5),
-                            activeDotColor: secondaryColor,
+                            activeDotColor: primaryColor,
                             dotHeight: 10,
                             dotWidth: 10,
                             radius: 7),
@@ -105,6 +104,7 @@ class _BoardingState extends State<Boarding> {
                     onPressed: loginFunc,
                     text: "Login",
                     textStyle: AppTheme.notoSansMed18White,
+                    style: AppTheme.elevatedButtonStyle,
                   ),
                 ),
               ],

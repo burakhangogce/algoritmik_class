@@ -1,12 +1,11 @@
 import 'dart:io';
+import 'package:algoritmik_class/business/models/students/students_output_model.dart';
+import 'package:algoritmik_class/business/services/data/info_services.dart';
 import 'package:flutter/material.dart';
-
-import 'package:intl/intl.dart';
 import '../../../../main.dart';
+import '../../../models/classes/classes_output_model.dart';
 
-import '../../../services/data/common_services.dart';
-
-class CreateRequestController with ChangeNotifier {
+class StudentsController with ChangeNotifier {
   String? _cekNoValue;
   int? cekBankValue;
   int? cekDepartmentValue;
@@ -20,8 +19,6 @@ class CreateRequestController with ChangeNotifier {
   int? editingRequestIndex;
 
   PageController pageController = PageController();
-
-  CreateRequestController() {}
 
   TextEditingController cekNo = TextEditingController();
   TextEditingController cekBank = TextEditingController();
@@ -72,8 +69,29 @@ class CreateRequestController with ChangeNotifier {
   File? imageSenetBackCamera;
 
   bool qrCodeEnable = false;
+  int selectedId = -1;
 
-  final CommonServices _commonServices = getIt.get<CommonServices>();
+  final InfoServices _infoServices = getIt.get<InfoServices>();
+
+  Future<List<ClassesOutputModel>> contGetClasses() async {
+    var result = await _infoServices.getClass();
+    return result;
+  }
+
+  Future<List<StudentsOutputModel>> contGetStudents() async {
+    var result = await _infoServices.getStudents();
+    return result;
+  }
+
+  Future<List<StudentsOutputModel>> contGetStudentsClass(int id) async {
+    var result = await _infoServices.getStudentsClass(id);
+    return result;
+  }
+
+  setSelectedIndex(int index) {
+    selectedId = index;
+    notifyListeners();
+  }
 
   setQrCode(bool qrCodeEnableValue) {
     qrCodeEnable = qrCodeEnableValue;

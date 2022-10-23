@@ -45,25 +45,3 @@ mixin ShowSheetMixin {
     );
   }
 }
-
-class _Header extends StatelessWidget {
-  const _Header({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const Spacer(flex: 2),
-        SizedBox(width: 300, child: const Divider(thickness: 10)),
-        const Spacer(),
-        IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.close))
-      ],
-    );
-  }
-}
