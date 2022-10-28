@@ -339,12 +339,16 @@ class AppTheme {
 
   static const TextStyle notoSansSemiBold =
       TextStyle(fontFamily: "NotoSans", fontWeight: FontWeight.w600);
+  static TextStyle notoSansSB12PrimaryText =
+      notoSansSemiBold.copyWith(color: primaryTextColor, fontSize: 12.0);
 
   static TextStyle notoSansSB16PrimaryText =
       notoSansSemiBold.copyWith(color: primaryTextColor, fontSize: 16.0);
 
   static TextStyle notoSansSB18PrimaryText =
       notoSansSemiBold.copyWith(color: primaryTextColor, fontSize: 18.0);
+  static TextStyle notoSansSB18Primary2Text =
+      notoSansSemiBold.copyWith(color: primary2TextColor, fontSize: 18.0);
   static TextStyle notoSansSB18WhiteText =
       notoSansSemiBold.copyWith(color: Colors.white, fontSize: 18.0);
 

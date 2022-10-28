@@ -1,5 +1,5 @@
 import 'package:algoritmik_class/business/models/students/students_output_model.dart';
-import 'package:algoritmik_class/business/services/general/infact_service_base.dart';
+import 'package:algoritmik_class/business/services/general/algoritmik_service_base.dart';
 
 import '../../../core/mixins/service_mixin.dart';
 import '../../models/classes/classes_output_model.dart';

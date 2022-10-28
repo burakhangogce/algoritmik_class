@@ -103,92 +103,100 @@ class _HomePageState extends State<HomePage>
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  height: pageHeight * 0.2,
-                  width: pageWidht * 0.4,
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: fistBorderColor),
-                    borderRadius: const BorderRadius.all(Radius.circular(20)),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      Container(
-                        height: 52,
-                        width: 52,
-                        decoration: BoxDecoration(
-                            border:
-                                Border.all(width: 1, color: fistBorderColor),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(20)),
-                            color: background2Color),
-                        child: DuoToneFontAwesomeIcon(
-                            iconSource: IconFont.analytics,
-                            firstColor: firstIconColor,
-                            iconSize: 24,
-                            secondColor: secondIconColor,
-                            iconSecondSource: SecondIconFont.analytics),
-                      ),
-                      Center(
-                          child: Text(
-                        "Rapor",
-                        style: AppTheme.notoSansSB16PrimaryText,
-                      )),
-                      const Text(
-                        "Tüm Raporlarım",
-                        style: AppTheme.notoSansMed14Primary2Text,
-                      ),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    height: pageHeight * 0.2,
+                    width: pageWidht * 0.4,
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 1, color: fistBorderColor),
+                      borderRadius: const BorderRadius.all(Radius.circular(20)),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        Container(
+                          height: 52,
+                          width: 52,
+                          decoration: BoxDecoration(
+                              border:
+                                  Border.all(width: 1, color: fistBorderColor),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(20)),
+                              color: background2Color),
+                          child: DuoToneFontAwesomeIcon(
+                              iconSource: IconFont.analytics,
+                              firstColor: firstIconColor,
+                              iconSize: 24,
+                              secondColor: secondIconColor,
+                              iconSecondSource: SecondIconFont.analytics),
+                        ),
+                        Center(
+                            child: Text(
+                          "Rapor",
+                          style: AppTheme.notoSansSB16PrimaryText,
+                        )),
+                        const Text(
+                          "Tüm Raporlarım",
+                          style: AppTheme.notoSansMed14Primary2Text,
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  height: pageHeight * 0.2,
-                  width: pageWidht * 0.4,
-                  decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: fistBorderColor),
-                    borderRadius: const BorderRadius.all(Radius.circular(20)),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      Container(
-                        height: 52,
-                        width: 52,
-                        decoration: BoxDecoration(
-                            border:
-                                Border.all(width: 1, color: fistBorderColor),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(20)),
-                            color: background2Color),
-                        child: DuoToneFontAwesomeIcon(
-                            iconSource: IconFont.paperplane,
-                            firstColor: firstIconColor,
-                            iconSize: 24,
-                            secondColor: secondIconColor,
-                            iconSecondSource: SecondIconFont.paperplane),
-                      ),
-                      Center(
-                          child: Text(
-                        "Ödev",
-                        style: AppTheme.notoSansSB16PrimaryText,
-                      )),
-                      const Text(
-                        "Ödevlerim",
-                        style: AppTheme.notoSansMed14Primary2Text,
-                      ),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/homework');
+                  },
+                  child: Container(
+                    height: pageHeight * 0.2,
+                    width: pageWidht * 0.4,
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 1, color: fistBorderColor),
+                      borderRadius: const BorderRadius.all(Radius.circular(20)),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        Container(
+                          height: 52,
+                          width: 52,
+                          decoration: BoxDecoration(
+                              border:
+                                  Border.all(width: 1, color: fistBorderColor),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(20)),
+                              color: background2Color),
+                          child: DuoToneFontAwesomeIcon(
+                              iconSource: IconFont.paperplane,
+                              firstColor: firstIconColor,
+                              iconSize: 24,
+                              secondColor: secondIconColor,
+                              iconSecondSource: SecondIconFont.paperplane),
+                        ),
+                        Center(
+                            child: Text(
+                          "Ödev",
+                          style: AppTheme.notoSansSB16PrimaryText,
+                        )),
+                        const Text(
+                          "Ödevlerim",
+                          style: AppTheme.notoSansMed14Primary2Text,
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

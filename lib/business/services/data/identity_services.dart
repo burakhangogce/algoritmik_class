@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:algoritmik_class/business/services/general/infact_service_base.dart';
+import 'package:algoritmik_class/business/services/general/algoritmik_service_base.dart';
 import '../../../core/mixins/service_mixin.dart';
 import '../../models/change_password_input_model.dart';
 import '../../models/event_output_model.dart';

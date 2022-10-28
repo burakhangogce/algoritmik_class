@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:algoritmik_class/business/modules/homework/controller/homework_controller.dart';
+import 'package:algoritmik_class/business/modules/homework/screens/homework_page.dart';
 import 'package:algoritmik_class/business/modules/students/screens/student_details_page.dart';
 import 'package:algoritmik_class/business/modules/students/screens/students_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -75,6 +77,10 @@ class MyApp extends StatelessWidget {
         "/login": (context) => ChangeNotifierProvider(
               create: (_) => SigninController(),
               child: const SigninView(),
+            ),
+        "/homework": (context) => ChangeNotifierProvider(
+              create: (_) => HomeWorkController(),
+              child: const HomeWorkPage(),
             ),
         "/secondaryLogin": (context) => ChangeNotifierProvider(
               create: (_) => SigninController(),

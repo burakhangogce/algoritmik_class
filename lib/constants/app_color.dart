@@ -80,7 +80,7 @@ const Color officalCardBorderColor = Color.fromRGBO(248, 248, 248, 1);
 MaterialColor officalCardBorderMaterialColor =
     officalCardBorderColor.toMaterialColor();
 
-const Color loginGradientStartColor = Color.fromRGBO(19, 46, 106, 1);
+const Color loginGradientStartColor = firstIconColor;
 
 const Color containerShadowColor = Color.fromRGBO(232, 232, 232, 0.16);
 
@@ -92,12 +92,8 @@ MaterialColor filterTextFieldColorMaterialColor =
 
 LinearGradient gradientBackground = const LinearGradient(
     begin: Alignment(0.5, 0),
-    end: Alignment(0.5, 1.1825454235076904),
-    colors: [
-      loginGradientStartColor,
-      Color.fromRGBO(21, 48, 110, 1),
-      Color.fromRGBO(10, 23, 53, 1)
-    ]);
+    end: Alignment(0, 0),
+    colors: [secondIconColor, secondIconColor, secondIconColor]);
 
 const Color scanedColor = Color.fromRGBO(148, 238, 91, 1);
 MaterialColor scanedColorMaterialColor =

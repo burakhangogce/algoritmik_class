@@ -21,7 +21,7 @@ class TapTextFormField extends StatefulWidget {
   final String? Function(String?)? validator;
   final IconButton? suffixIcon;
   final bool obsecureText;
-  final Icon? icon;
+  final Icon icon;
   final bool? isEnabled;
 
   @override
@@ -47,15 +47,13 @@ class _TapTextFormFieldState extends State<TapTextFormField> {
   }
 
   void updateColor() {
-    setState(() {
-      if (widget.validator != null) {
-        var errorText = widget.validator!(widget.controller.text);
-        isError = errorText != null;
-        if (isError) {
-          boxColor = errorColor;
-        }
+    if (widget.validator != null) {
+      var errorText = widget.validator!(widget.controller.text);
+      isError = errorText != null;
+      if (isError) {
+        boxColor = errorColor;
       }
-    });
+    }
   }
 
   @override
@@ -93,6 +91,16 @@ class _TapTextFormFieldState extends State<TapTextFormField> {
               style: widget.isEnabled != null && !widget.isEnabled!
                   ? AppTheme.notoSansReg16Inside
                   : AppTheme.notoSansReg16Quaternary,
+              validator: (val) {
+                String? errorText = widget.validator!(val);
+                Future.microtask(() {
+                  updateColor();
+                });
+                return errorText;
+              },
+              autovalidateMode: widget.validator != null
+                  ? AutovalidateMode.onUserInteraction
+                  : null,
               readOnly: true,
               enabled: false,
               keyboardType: widget.keyboardType,
@@ -105,7 +113,7 @@ class _TapTextFormFieldState extends State<TapTextFormField> {
     );
   }
 
-  InputDecoration getDecoration(Icon? icon) {
+  InputDecoration getDecoration(Icon icon) {
     return InputDecoration(
       contentPadding: const EdgeInsets.only(top: 4, left: 8, bottom: 8),
       labelText: widget.placeholder,
@@ -115,10 +123,9 @@ class _TapTextFormFieldState extends State<TapTextFormField> {
       fillColor: Colors.white,
       suffixIcon: IconButton(
         iconSize: 25,
-        icon: icon ?? Image.asset("assets/images/Takvim.png"),
+        icon: icon,
         onPressed: () => {
           widget.controller.clear(),
-          setState(() {}),
         },
       ),
       border: InputBorder.none,

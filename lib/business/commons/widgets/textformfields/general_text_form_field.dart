@@ -58,15 +58,13 @@ class _GeneralTextFormFieldState extends State<GeneralTextFormField> {
   }
 
   void updateColor() {
-    setState(() {
-      if (widget.validator != null) {
-        var errorText = widget.validator!(widget.controller.text);
-        isError = errorText != null;
-        if (isError) {
-          boxColor = errorColor;
-        }
+    if (widget.validator != null) {
+      var errorText = widget.validator!(widget.controller.text);
+      isError = errorText != null;
+      if (isError) {
+        boxColor = errorColor;
       }
-    });
+    }
   }
 
   @override
@@ -123,9 +121,7 @@ class _GeneralTextFormFieldState extends State<GeneralTextFormField> {
               validator: (val) {
                 String? errorText = widget.validator!(val);
                 Future.microtask(() {
-                  setState(() {
-                    updateColor();
-                  });
+                  updateColor();
                 });
                 return errorText;
               },
@@ -151,25 +147,7 @@ class _GeneralTextFormFieldState extends State<GeneralTextFormField> {
           ? AppTheme.focusedLabelTextStyle
           : AppTheme.labelTextStyle,
       fillColor: Colors.white,
-      suffixIcon: widget.suffixIcon ??
-          (widget.controller.text.isEmpty || !isError
-              ? null
-              : IconButton(
-                  iconSize: 25,
-                  icon: const Image(
-                    image: AssetImage('assets/images/sifre_mail_sil.png'),
-                  ),
-                  onPressed: () => {
-                    widget.controller.clear(),
-                    setState(() {}),
-                  },
-                )),
       border: InputBorder.none,
-      // focusedBorder: getTextFieldBorder(primaryColor),
-      // disabledBorder: getTextFieldBorder(softBorderColor),
-      // enabledBorder: getTextFieldBorder(softBorderColor),
-      // errorBorder: getTextFieldBorder(errorColor),
-      // focusedErrorBorder: getTextFieldBorder(errorColor),
     );
   }
 

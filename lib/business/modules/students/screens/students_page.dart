@@ -55,8 +55,7 @@ class StudentsPage extends StatelessWidget {
                     if (snapshot.hasData) {
                       dataClasses = snapshot.data!;
                       return Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 15),
-                        height: pageHeight * 0.1,
+                        height: pageHeight * 0.09,
                         width: pageWidht * 0.9,
                         decoration: BoxDecoration(
                             border:
@@ -64,64 +63,68 @@ class StudentsPage extends StatelessWidget {
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(20)),
                             color: background2Color),
-                        child: Row(
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                controller.setSelectedIndex(-1);
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.all(4),
-                                width: 50,
-                                decoration: BoxDecoration(
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(10)),
-                                  color: controller.selectedId == -1
-                                      ? Colors.white
-                                      : Colors.transparent,
-                                ),
-                                child: const Center(
-                                  child: Text(
-                                    "All",
-                                    style: AppTheme.notoSansMed14PrimaryText,
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  controller.setSelectedIndex(-1);
+                                },
+                                child: Container(
+                                  margin: const EdgeInsets.all(4),
+                                  width: 50,
+                                  decoration: BoxDecoration(
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(10)),
+                                    color: controller.selectedId == -1
+                                        ? Colors.white
+                                        : Colors.transparent,
+                                  ),
+                                  child: const Center(
+                                    child: Text(
+                                      "All",
+                                      style: AppTheme.notoSansMed14PrimaryText,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            Expanded(
-                              child: ListView.builder(
-                                  itemCount: dataClasses.length,
-                                  scrollDirection: Axis.horizontal,
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    return GestureDetector(
-                                      onTap: () {
-                                        controller.setSelectedIndex(
-                                            dataClasses[index].classId);
-                                      },
-                                      child: Container(
-                                        margin: const EdgeInsets.all(4),
-                                        width: 50,
-                                        decoration: BoxDecoration(
-                                          borderRadius: const BorderRadius.all(
-                                              Radius.circular(10)),
-                                          color: controller.selectedId ==
-                                                  dataClasses[index].classId
-                                              ? Colors.white
-                                              : Colors.transparent,
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            dataClasses[index].className,
-                                            style: AppTheme
-                                                .notoSansMed14PrimaryText,
+                              Expanded(
+                                child: ListView.builder(
+                                    itemCount: dataClasses.length,
+                                    scrollDirection: Axis.horizontal,
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      return GestureDetector(
+                                        onTap: () {
+                                          controller.setSelectedIndex(
+                                              dataClasses[index].classId);
+                                        },
+                                        child: Container(
+                                          margin: const EdgeInsets.all(4),
+                                          width: 50,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                const BorderRadius.all(
+                                                    Radius.circular(10)),
+                                            color: controller.selectedId ==
+                                                    dataClasses[index].classId
+                                                ? Colors.white
+                                                : Colors.transparent,
+                                          ),
+                                          child: Center(
+                                            child: Text(
+                                              dataClasses[index].className,
+                                              style: AppTheme
+                                                  .notoSansMed14PrimaryText,
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    );
-                                  }),
-                            ),
-                          ],
+                                      );
+                                    }),
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     } else if (snapshot.hasError) {
@@ -129,11 +132,19 @@ class StudentsPage extends StatelessWidget {
                     }
                     return const CircularProgressIndicator();
                   }),
+              const SizedBox(
+                height: 15,
+              ),
               FutureBuilder<dynamic>(
                   future: controller.selectedId == -1
                       ? controller.contGetStudents()
                       : controller.contGetStudentsClass(controller.selectedId),
                   builder: (context, snapshot) {
+                    if (snapshot.connectionState != ConnectionState.done) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
                     if (snapshot.hasData) {
                       dataStudents = snapshot.data!;
                       return SizedBox(
